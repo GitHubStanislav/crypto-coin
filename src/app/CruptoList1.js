@@ -23,6 +23,9 @@ const CryptoList1 = ({ cryptocurrencies, exchangeRate }) => {
 
   return (
     <ul className="space-y-4 rounded-md divide-y divide-pink-800">
+      <p className="ml-10 text-2xl bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
+        ALL CRYPTOCURRENCIES
+      </p>
       <div className="bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text text-white flex justify-end mr-8">
         <div className="w-full md:w-5/6 flex flex-wrap">
           <div className="w-1/4 font-bold hidden md:block">
