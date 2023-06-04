@@ -1,9 +1,10 @@
 "use client";
-// pages/Home/Home.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import lottie from "lottie-web";
 import axios from "axios";
 import Navbar from "./Navbar/Navbar";
 import CryptoList1 from "./CruptoList1";
+import Image from "next/image";
 
 const Home = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -12,6 +13,25 @@ const Home = () => {
   const [visibleCryptocurrencies, setVisibleCryptocurrencies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
+  const animationContainerRef = useRef(null);
+
+  useEffect(() => {
+    const loadAnimation = async () => {
+      const animation = await lottie.loadAnimation({
+        container: animationContainerRef.current,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "https://assets10.lottiefiles.com/packages/lf20_6q3x8d8e.json",
+      });
+      animationContainerRef.current.style.width = "300px"; // Adjust the width as needed
+      animationContainerRef.current.style.height = "300px"; // Adjust the height as needed
+      animationContainerRef.current.style.margin = "0 auto";
+    };
+
+    loadAnimation();
+  }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,6 +39,7 @@ const Home = () => {
           "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&sparkline=false&price_change_percentage=1h,24h,7d,30d,1y&market_data=false&community_data=false&developer_data=false"
         );
         setCryptocurrencies(response.data);
+        console.log(response);
       } catch (error) {
         console.log("Error fetching data:", error);
       }
@@ -148,14 +169,45 @@ const Home = () => {
         handleMenuToggle={handleMenuToggle}
         handleCloseMenu={handleCloseMenu}
       />
-      <section className="mt-28">
+      <section className="mt-4">
         <p className="md:text-8xl sm:text-6xl text-4xl text-center text-gray-200 font-bold">
           USE OUR FREE CRYPTO PORTFOLIO TRACKER -{" "}
           <span className="bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
             CRYPTOCOIN
           </span>
         </p>
-        <div></div>
+        <div>
+          <ul className="flex flex-wrap justify-center mt-10">
+            {cryptocurrencies.slice(0, 4).map((crypto) => (
+              <li
+                key={crypto.id}
+                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mb-8"
+              >
+                <Image
+                  src={crypto.image}
+                  alt={crypto.name}
+                  width={80}
+                  height={80}
+                />
+                <p
+                  className={
+                    crypto.price_change_percentage_24h < 0
+                      ? "text-red-600 text-2xl sm:text-4xl text-center"
+                      : "text-lime-500 text-2xl sm:text-4xl text-center"
+                  }
+                >
+                  {crypto.price_change_percentage_24h.toFixed(3)}%
+                </p>
+                <p className="text-white text-2xl sm:text-4xl text-center">
+                  ${crypto.current_price}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <div className="flex justify-center">
+            <div ref={animationContainerRef}></div>
+          </div>
+        </div>
       </section>
       <div className="text-gray-900 p-8 bg-inherit">
         <CryptoList1
