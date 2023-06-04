@@ -25,16 +25,16 @@ const CryptoList1 = ({ cryptocurrencies, exchangeRate }) => {
     <ul className="space-y-4 rounded-md divide-y divide-pink-800">
       <div className="bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text text-white flex justify-end mr-8">
         <div className="w-full md:w-5/6 flex flex-wrap">
-          <div className="w-1/4 font-semibold hidden md:block">
+          <div className="w-1/4 font-bold hidden md:block">
             Current Price (USD)
           </div>
-          <div className="w-1/4 font-semibold hidden md:block">
+          <div className="w-1/4 font-bold hidden md:block">
             Current Price (UAH)
           </div>
-          <div className="w-1/4 font-semibold hidden md:block">
+          <div className="w-1/4 font-bold hidden md:block">
             1-hour Price Change
           </div>
-          <div className="w-1/4 font-semibold hidden md:block">
+          <div className="w-1/4 font-bold hidden md:block">
             24-hour Price Change
           </div>
         </div>

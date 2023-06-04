@@ -187,15 +187,15 @@ const Home = () => {
                   <Image
                     src={crypto.image}
                     alt={crypto.name}
-                    width={80}
-                    height={80}
+                    width={60}
+                    height={60}
                   />
                 </div>
                 <p
                   className={
                     crypto.price_change_percentage_24h < 0
-                      ? "text-red-600 text-2xl sm:text-4xl text-center"
-                      : "text-lime-500 text-2xl sm:text-4xl text-center"
+                      ? "text-red-600 text-xl sm:text-4xl text-center"
+                      : "text-lime-500 text-xl sm:text-4xl text-center"
                   }
                 >
                   {crypto.price_change_percentage_24h.toFixed(3)}%
