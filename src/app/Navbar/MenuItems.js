@@ -12,7 +12,7 @@ const MenuItems = ({ isMenuOpen }) => {
         <a
           href="#"
           className={`font-bold ${
-            isMenuOpen ? "text-black" : "text-white"
+            isMenuOpen ? "text-black" : "text-gray-200"
           } transition-colors duration-300 hover:text-pink-500 block text-xl`}
         >
           Home
@@ -22,7 +22,7 @@ const MenuItems = ({ isMenuOpen }) => {
         <a
           href="#"
           className={`font-bold ${
-            isMenuOpen ? "text-black" : "text-white"
+            isMenuOpen ? "text-black" : "text-gray-200"
           } transition-colors duration-300 hover:text-pink-500 block text-xl`}
         >
           Market
@@ -32,7 +32,7 @@ const MenuItems = ({ isMenuOpen }) => {
         <a
           href="#"
           className={`font-bold ${
-            isMenuOpen ? "text-black" : "text-white"
+            isMenuOpen ? "text-black" : "text-gray-200"
           } transition-colors duration-300 hover:text-pink-500 block text-xl`}
         >
           Join us

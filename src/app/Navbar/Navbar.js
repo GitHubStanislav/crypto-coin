@@ -7,8 +7,8 @@ const Navbar = ({ isMenuOpen, handleMenuToggle, handleCloseMenu }) => {
   return (
     <nav className="flex justify-between items-center py-6 px-8 mt-5">
       {/* CRYPTO-COIN Link */}
-      <a href="#" className="text-2xl font-bold text-white">
-        CRYPTO-COIN
+      <a href="#" className="text-2xl font-extrabold text-gray-200">
+        CryptoCoin
       </a>
 
       {/* Burger Menu Icon */}
