@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    @apply bg-gradient-to-b from-purple-950 to-pink-950 min-h-screen;
+}
