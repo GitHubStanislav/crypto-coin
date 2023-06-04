@@ -181,14 +181,16 @@ const Home = () => {
             {cryptocurrencies.slice(0, 4).map((crypto) => (
               <li
                 key={crypto.id}
-                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mb-8"
+                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mb-8 flex flex-col"
               >
-                <Image
-                  src={crypto.image}
-                  alt={crypto.name}
-                  width={80}
-                  height={80}
-                />
+                <div className="flex justify-center">
+                  <Image
+                    src={crypto.image}
+                    alt={crypto.name}
+                    width={80}
+                    height={80}
+                  />
+                </div>
                 <p
                   className={
                     crypto.price_change_percentage_24h < 0
