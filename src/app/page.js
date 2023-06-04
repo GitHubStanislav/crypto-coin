@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import lottie from "lottie-web";
 import axios from "axios";
 import Navbar from "./Navbar/Navbar";
-import CryptoList1 from "./CruptoList1";
+import CryptoList from "./CryptoList";
 import Image from "next/image";
 
 const Home = () => {
@@ -212,7 +212,7 @@ const Home = () => {
         </div>
       </section>
       <div className="text-gray-900 p-8 bg-inherit">
-        <CryptoList1
+        <CryptoList
           cryptocurrencies={visibleCryptocurrencies}
           exchangeRate={exchangeRate}
         />

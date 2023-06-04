@@ -1,11 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
-const CryptoList1 = ({ cryptocurrencies, exchangeRate }) => {
-  const formatPercentage = (percentage) => {
-    const roundedPercentage = parseFloat(percentage).toFixed(3);
-    return roundedPercentage;
-  };
+const CryptoList = ({ cryptocurrencies, exchangeRate }) => {
+  const formatPercentage = (percentage) => parseFloat(percentage).toFixed(3);
 
   const getPercentageColor = (percentage) => {
     if (percentage < 0) {
@@ -100,4 +97,4 @@ const CryptoList1 = ({ cryptocurrencies, exchangeRate }) => {
   );
 };
 
-export default CryptoList1;
+export default CryptoList;
