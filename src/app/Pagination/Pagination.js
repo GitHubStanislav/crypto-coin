@@ -35,7 +35,7 @@ const Pagination = ({
       paginationItems.push(
         <button
           key="previous"
-          className="px-4 py-2 mx-1 rounded-md bg-gray-200 text-gray-900"
+          className="px-4 py-2 mx-1 mb-3 rounded-md bg-gray-200 text-gray-900"
           onClick={handlePreviousPage}
         >
           &lt;
@@ -47,7 +47,7 @@ const Pagination = ({
       paginationItems.push(
         <button
           key={i}
-          className={`px-4 py-2 mx-1 rounded-md ${
+          className={`px-4 py-2 mb-3 mx-1 rounded-md ${
             i === currentPage
               ? "bg-pink-600 text-white"
               : "bg-gray-200 text-gray-900"

@@ -34,7 +34,7 @@ const Navbar = ({ isMenuOpen, handleMenuToggle, handleCloseMenu }) => {
               CRYPTO-COIN
             </a>
             <button
-              className="text-2xl cursor-pointer text-gray-800"
+              className="text-2xl cursor-pointer text-black"
               onClick={handleCloseMenu}
             >
               &#10005;
