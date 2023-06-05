@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Animation from "@/app/AnimationContainer/Animation";
 
 const CryptoList = ({ cryptocurrencies, exchangeRate }) => {
   const formatPercentage = (percentage) => parseFloat(percentage).toFixed(3);
@@ -20,9 +21,12 @@ const CryptoList = ({ cryptocurrencies, exchangeRate }) => {
 
   return (
     <ul className="space-y-4 rounded-md  md:divide-y divide-pink-800">
-      <p className="mb-10 ml-10 md:text-4xl sm:text-2xl text-xl text-center text-gray-200 font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
+      <div className="flex items-center justify-center mb-10 ml-10 flex-wrap md:text-4xl sm:text-xl text-center text-gray-200 font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
         ALL CRYPTOCURRENCIES
-      </p>
+        <span className="ml-2">
+          <Animation />
+        </span>
+      </div>
       <div className="bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text text-white flex justify-end mr-8">
         <div className="w-full md:w-5/6 flex flex-wrap">
           <div className="w-1/4 font-bold hidden md:block">

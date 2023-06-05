@@ -27,9 +27,9 @@ const Pagination = ({
       );
     }
   } else {
-    // Render 5 page buttons and navigation arrows for more than 5 total pages
-    const startPage = Math.max(1, currentPage - 2);
-    const endPage = Math.min(startPage + 4, totalPages);
+    // Render 3 page buttons and navigation arrows for more than 5 total pages
+    const startPage = Math.max(1, currentPage - 1);
+    const endPage = Math.min(startPage + 2, totalPages);
 
     if (startPage > 1) {
       paginationItems.push(
@@ -63,7 +63,7 @@ const Pagination = ({
       paginationItems.push(
         <button
           key="next"
-          className="px-4 py-2 mx-1 rounded-md bg-gray-200 text-gray-900"
+          className="px-4 py-2 mx-1 mb-3 rounded-md bg-gray-200 text-gray-900"
           onClick={handleNextPage}
         >
           &gt;

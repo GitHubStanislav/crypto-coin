@@ -13,8 +13,8 @@ const Animation = () => {
         autoplay: true,
         path: "https://assets10.lottiefiles.com/packages/lf20_6q3x8d8e.json",
       });
-      animationContainerRef.current.style.width = "300px"; // Adjust the width as needed
-      animationContainerRef.current.style.height = "300px"; // Adjust the height as needed
+      animationContainerRef.current.style.width = "100px"; // Adjust the width as needed
+      animationContainerRef.current.style.height = "100px"; // Adjust the height as needed
       animationContainerRef.current.style.margin = "0 auto";
     };
 

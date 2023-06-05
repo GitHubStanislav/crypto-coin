@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { ProgressBar } from "react-loader-spinner";
 import Navbar from "./Navbar/Navbar";
-import CryptoList from "./CryptoList";
+import CryptoList from "./CryptoList/CryptoList";
 import Pagination from "./Pagination/Pagination";
 import Section from "./HeroSection/Section";
 import ReasonsToUseCrypto from "@/app/ReasonsToUseCrypto";
