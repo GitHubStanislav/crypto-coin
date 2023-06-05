@@ -9,6 +9,7 @@ import Pagination from "./Pagination/Pagination";
 import Section from "./HeroSection/Section";
 import ReasonsToUseCrypto from "@/app/HeroSection/ReasonsToUseCrypto";
 import Footer from "@/app/Footer/Footer";
+import JoinUs from "@/app/HeroSection/JoinUs";
 
 const Home = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -118,6 +119,7 @@ const Home = () => {
       <div>
         <ReasonsToUseCrypto />
       </div>
+      <JoinUs />
       <Footer />
     </div>
   );
