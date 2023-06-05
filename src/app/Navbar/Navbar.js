@@ -4,6 +4,16 @@ import MenuItems from "./MenuItems";
 import SocialMediaIcons from "./SocialMediaIcons";
 
 const Navbar = ({ isMenuOpen, handleMenuToggle, handleCloseMenu }) => {
+  const handleMenuClick = () => {
+    handleMenuToggle();
+    document.body.style.overflow = isMenuOpen ? "auto" : "hidden";
+  };
+
+  const handleCloseClick = () => {
+    handleCloseMenu();
+    document.body.style.overflow = "auto";
+  };
+
   return (
     <nav className="flex justify-between items-center py-6 px-8 mt-5">
       {/* CRYPTO-COIN Link */}
@@ -17,7 +27,7 @@ const Navbar = ({ isMenuOpen, handleMenuToggle, handleCloseMenu }) => {
           className={`text-2xl cursor-pointer text-white ${
             isMenuOpen ? "animate-burger" : ""
           }`}
-          onClick={handleMenuToggle}
+          onClick={handleMenuClick}
         >
           &#9776;
         </button>
@@ -28,14 +38,14 @@ const Navbar = ({ isMenuOpen, handleMenuToggle, handleCloseMenu }) => {
 
       {/* Burger Menu Items */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-white">
+        <div className="md:hidden fixed inset-0 bg-gray-300">
           <div className="flex justify-between items-center py-6 px-8">
             <a href="#" className="text-2xl font-bold text-gray-800">
               CRYPTO-COIN
             </a>
             <button
               className="text-2xl cursor-pointer text-black"
-              onClick={handleCloseMenu}
+              onClick={handleCloseClick}
             >
               &#10005;
             </button>
