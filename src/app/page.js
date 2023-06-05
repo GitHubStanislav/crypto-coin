@@ -7,8 +7,8 @@ import Navbar from "./Navbar/Navbar";
 import CryptoList from "./CryptoList/CryptoList";
 import Pagination from "./Pagination/Pagination";
 import Section from "./HeroSection/Section";
-import ReasonsToUseCrypto from "@/app/ReasonsToUseCrypto";
-import Footer from "@/app/Footer";
+import ReasonsToUseCrypto from "@/app/HeroSection/ReasonsToUseCrypto";
+import Footer from "@/app/Footer/Footer";
 
 const Home = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);

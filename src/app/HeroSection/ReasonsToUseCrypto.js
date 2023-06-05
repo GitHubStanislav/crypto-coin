@@ -10,7 +10,7 @@ import {
 
 const ReasonsToUseCrypto = () => {
   return (
-    <section className="container mx-auto px-8 py-10">
+    <section className="container mx-auto px-8 py-10 mt-10">
       <h2 className="mb-20 ml-10 md:text-6xl sm:text-2xl text-xl text-center text-gray-200 font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
         6 Reasons to Use Crypto
       </h2>
