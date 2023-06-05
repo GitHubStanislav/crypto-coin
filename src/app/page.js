@@ -1,11 +1,13 @@
 "use client";
+// components/Home.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "./Navbar/Navbar";
 import CryptoList from "./CryptoList";
-import Animation from "./AnimationContainer/Animation";
-import CryptoItem from "./CryptoItem";
 import Pagination from "./Pagination/Pagination";
+import Section from "./HeroSection/Section";
+import ReasonsToUseCrypto from "@/app/ReasonsToUseCrypto";
+import Footer from "@/app/Footer";
 
 const Home = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -81,24 +83,7 @@ const Home = () => {
         handleMenuToggle={handleMenuToggle}
         handleCloseMenu={handleCloseMenu}
       />
-      <section className="mt-36">
-        <p className="md:text-8xl sm:text-6xl text-4xl text-center text-gray-200 font-bold">
-          USE OUR FREE CRYPTO PORTFOLIO TRACKER -{" "}
-          <span className="bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
-            CRYPTOCOIN
-          </span>
-        </p>
-        <div>
-          <ul className="flex flex-wrap justify-center mt-20">
-            {cryptocurrencies.slice(0, 4).map((crypto) => (
-              <CryptoItem key={crypto.id} crypto={crypto} />
-            ))}
-          </ul>
-          <div className="flex justify-center">
-            <Animation />
-          </div>
-        </div>
-      </section>
+      <Section cryptocurrencies={cryptocurrencies} />
       <div className="text-gray-900 p-8 bg-inherit">
         <CryptoList
           cryptocurrencies={visibleCryptocurrencies}
@@ -114,6 +99,10 @@ const Home = () => {
           />
         </div>
       </div>
+      <div>
+        <ReasonsToUseCrypto />
+      </div>
+      <Footer />
     </div>
   );
 };
