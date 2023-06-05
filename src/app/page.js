@@ -2,6 +2,7 @@
 // components/Home.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { ProgressBar } from "react-loader-spinner";
 import Navbar from "./Navbar/Navbar";
 import CryptoList from "./CryptoList";
 import Pagination from "./Pagination/Pagination";
@@ -84,21 +85,36 @@ const Home = () => {
         handleCloseMenu={handleCloseMenu}
       />
       <Section cryptocurrencies={cryptocurrencies} />
-      <div className="text-gray-900 p-8 bg-inherit">
-        <CryptoList
-          cryptocurrencies={visibleCryptocurrencies}
-          exchangeRate={exchangeRate}
-        />
-        <div className="flex justify-center mt-4">
-          <Pagination
-            currentPage={currentPage}
-            totalPages={Math.ceil(cryptocurrencies.length / 10)}
-            handlePageChange={handlePageChange}
-            handlePreviousPage={handlePreviousPage}
-            handleNextPage={handleNextPage}
+      {!!cryptocurrencies.length ? (
+        <div className="text-gray-900 p-8 bg-inherit">
+          <CryptoList
+            cryptocurrencies={visibleCryptocurrencies}
+            exchangeRate={exchangeRate}
+          />
+          <div className="flex justify-center mt-4">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={Math.ceil(cryptocurrencies.length / 10)}
+              handlePageChange={handlePageChange}
+              handlePreviousPage={handlePreviousPage}
+              handleNextPage={handleNextPage}
+            />
+          </div>{" "}
+        </div>
+      ) : (
+        <div className="flex justify-center w-auto">
+          <ProgressBar
+            height={140}
+            width={140}
+            ariaLabel="progress-bar-loading"
+            wrapperStyle={{}}
+            wrapperClass="progress-bar-wrapper"
+            borderColor="#F4442E"
+            barColor="#51E5FF"
           />
         </div>
-      </div>
+      )}
+
       <div>
         <ReasonsToUseCrypto />
       </div>
