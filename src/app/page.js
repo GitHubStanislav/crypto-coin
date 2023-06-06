@@ -1,5 +1,4 @@
 "use client";
-// components/Home.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { ProgressBar } from "react-loader-spinner";
@@ -59,19 +58,19 @@ const Home = () => {
 
   const handlePreviousPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+      setCurrentPage((prevPage) => prevPage - 1);
     }
   };
 
   const handleNextPage = () => {
     const totalPages = Math.ceil(cryptocurrencies.length / 10);
     if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+      setCurrentPage((prevPage) => prevPage + 1);
     }
   };
 
   const handleMenuToggle = () => {
-    setMenuOpen(!isMenuOpen);
+    setMenuOpen((prevState) => !prevState);
   };
 
   const handleCloseMenu = () => {

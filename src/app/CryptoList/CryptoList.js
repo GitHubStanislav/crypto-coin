@@ -20,7 +20,7 @@ const CryptoList = ({ cryptocurrencies, exchangeRate }) => {
   };
 
   return (
-    <ul className="">
+    <ul>
       <div className="flex items-center justify-center mb-10 ml-10 flex-wrap md:text-4xl sm:text-xl text-center text-gray-200 font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
         ALL CRYPTOCURRENCIES
         <span className="ml-2">
