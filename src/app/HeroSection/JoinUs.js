@@ -11,56 +11,58 @@ const JoinUs = () => {
               Join Us Now!
             </span>
           </h2>
-          <p className="text-base font-bold  md:text-xl text-center mb-8 bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
+          <p className="text-base font-bold md:text-xl text-center mb-8 bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
             Start your crypto journey and unlock the potential of
             cryptocurrencies.
           </p>
-          <div className="flex items-center mb-8">
-            <FaBitcoin className="text-pink-500 text-6xl md:text-9xl animate-pulse-slow animate-fade-in mx-4 hover:text-pink-600 hover:scale-110 transition-all duration-300" />
-            <div>
-              <h3 className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
-                Exclusive Access
-              </h3>
-              <p className="text-base">
-                Gain exclusive access to educational resources and investment
-                opportunities.
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="flex items-center mb-8">
+              <FaBitcoin className="text-pink-500 text-6xl md:text-9xl animate-pulse-slow animate-fade-in mx-4 hover:text-pink-600 hover:scale-110 transition-all duration-300" />
+              <div>
+                <h3 className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
+                  Exclusive Access
+                </h3>
+                <p className="text-base">
+                  Gain exclusive access to educational resources and investment
+                  opportunities.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center mb-8">
-            <FaUsers className="text-pink-500 text-6xl md:text-9xl animate-pulse-slow animate-fade-in mx-4 hover:text-pink-600 hover:scale-110 transition-all duration-300" />
-            <div>
-              <h3 className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
-                Thriving Community
-              </h3>
-              <p className="text-base">
-                Connect with a thriving community of cryptocurrency enthusiasts
-                and participate in networking events.
-              </p>
+            <div className="flex items-center mb-8">
+              <FaUsers className="text-pink-500 text-6xl md:text-9xl animate-pulse-slow animate-fade-in mx-4 hover:text-pink-600 hover:scale-110 transition-all duration-300" />
+              <div>
+                <h3 className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
+                  Thriving Community
+                </h3>
+                <p className="text-base">
+                  Connect with a thriving community of cryptocurrency
+                  enthusiasts and participate in networking events.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center mb-8">
-            <FaMoneyCheckAlt className="text-pink-500 text-6xl md:text-9xl animate-pulse-slow animate-fade-in mx-4 hover:text-pink-600 hover:scale-110 transition-all duration-300" />
-            <div>
-              <h3 className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
-                Financial Freedom
-              </h3>
-              <p className="text-base">
-                Explore the possibilities of achieving financial freedom through
-                cryptocurrency investments.
-              </p>
+            <div className="flex items-center mb-8">
+              <FaMoneyCheckAlt className="text-pink-500 text-6xl md:text-9xl animate-pulse-slow animate-fade-in mx-4 hover:text-pink-600 hover:scale-110 transition-all duration-300" />
+              <div>
+                <h3 className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
+                  Financial Freedom
+                </h3>
+                <p className="text-base">
+                  Explore the possibilities of achieving financial freedom
+                  through cryptocurrency investments.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center mb-8">
-            <FaBook className="text-pink-500 text-6xl md:text-9xl animate-pulse-slow animate-fade-in mx-4 hover:text-pink-600 hover:scale-110 transition-all duration-300" />
-            <div>
-              <h3 className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
-                Stay Informed
-              </h3>
-              <p className="text-base">
-                Stay up to date with the latest trends, news, and insights in
-                the world of cryptocurrencies.
-              </p>
+            <div className="flex items-center mb-8">
+              <FaBook className="text-pink-500 text-6xl md:text-9xl animate-pulse-slow animate-fade-in mx-4 hover:text-pink-600 hover:scale-110 transition-all duration-300" />
+              <div>
+                <h3 className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
+                  Stay Informed
+                </h3>
+                <p className="text-base">
+                  Stay up to date with the latest trends, news, and insights in
+                  the world of cryptocurrencies.
+                </p>
+              </div>
             </div>
           </div>
           <div className="flex justify-center">
