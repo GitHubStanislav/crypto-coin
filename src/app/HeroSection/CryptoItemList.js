@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const CryptoItem = ({ crypto }) => {
+const CryptoItemList = ({ crypto }) => {
   return (
     <li className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mb-8 flex flex-col">
       <div className="flex justify-center">
@@ -23,4 +23,4 @@ const CryptoItem = ({ crypto }) => {
   );
 };
 
-export default CryptoItem;
+export default CryptoItemList;

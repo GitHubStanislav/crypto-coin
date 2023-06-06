@@ -7,6 +7,8 @@
     <list default="true" id="217efda5-41ea-474d-9c1d-b1baec19133d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/CryptoList/CryptoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/CryptoList/CryptoList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/HeroSection/CryptoItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/HeroSection/CryptoItemList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/HeroSection/Section.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/HeroSection/Section.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +115,7 @@
       <workItem from="1685864063360" duration="10127000" />
       <workItem from="1685891851510" duration="5848000" />
       <workItem from="1685993787450" duration="6432000" />
-      <workItem from="1686035732947" duration="6831000" />
+      <workItem from="1686035732947" duration="9878000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,6 @@
 // components/Section.js
 import React from "react";
-import CryptoItem from "./CryptoItem";
+import CryptoItemList from "./CryptoItemList";
 
 const Section = ({ cryptocurrencies }) => {
   return (
@@ -14,7 +14,7 @@ const Section = ({ cryptocurrencies }) => {
       <div>
         <ul className="flex flex-wrap justify-center mt-20">
           {cryptocurrencies.slice(0, 4).map((crypto) => (
-            <CryptoItem key={crypto.id} crypto={crypto} />
+            <CryptoItemList key={crypto.id} crypto={crypto} />
           ))}
         </ul>
       </div>

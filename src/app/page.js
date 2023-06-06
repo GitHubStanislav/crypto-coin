@@ -104,8 +104,8 @@ const Home = () => {
       ) : (
         <div className="flex justify-center w-auto">
           <ProgressBar
-            height={140}
-            width={140}
+            height={180}
+            width={180}
             ariaLabel="progress-bar-loading"
             wrapperStyle={{}}
             wrapperClass="progress-bar-wrapper"
