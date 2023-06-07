@@ -58,7 +58,7 @@ const Navbar = ({ isMenuOpen, handleMenuToggle, handleCloseMenu }) => {
 
       {/* Burger Menu Items */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-gray-300">
+        <div className="md:hidden fixed inset-0 bg-gray-100">
           <div className="flex justify-between items-center py-6 px-8">
             <a href="#" className="text-2xl font-bold text-gray-800">
               CRYPTO-COIN
