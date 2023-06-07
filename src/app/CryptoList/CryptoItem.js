@@ -17,7 +17,7 @@ const CryptoItem = ({ crypto, exchangeRate }) => {
   };
 
   return (
-    <li className="p-4 flex flex-col md:flex-row md:items-center md:justify-between hover:bg-gray-200 hover:bg-opacity-20 transition-colors duration-300">
+    <li className="container mx-auto px-4 p-4 flex flex-col md:flex-row md:items-center md:justify-between hover:bg-gray-200 hover:bg-opacity-20 transition-colors duration-300">
       <div className="flex items-center w-full md:w-1/6 mb-4 md:mb-0">
         <div className="mr-2">
           <Image src={crypto.image} alt={crypto.name} width={35} height={35} />

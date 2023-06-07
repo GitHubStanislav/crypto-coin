@@ -1,9 +1,10 @@
-// components/Navbar/Navbar.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MenuItems from "./MenuItems";
 import SocialMediaIcons from "./SocialMediaIcons";
 
 const Navbar = ({ isMenuOpen, handleMenuToggle, handleCloseMenu }) => {
+  const [isSticky, setIsSticky] = useState(false);
+
   const handleMenuClick = () => {
     handleMenuToggle();
     document.body.style.overflow = isMenuOpen ? "auto" : "hidden";
@@ -14,10 +15,29 @@ const Navbar = ({ isMenuOpen, handleMenuToggle, handleCloseMenu }) => {
     document.body.style.overflow = "auto";
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsSticky(scrollPosition > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="flex justify-between items-center py-6 px-8 mt-5">
+    <nav
+      className={`flex justify-between items-center py-6 px-8 mt-5 ${
+        isSticky ? "sticky top-0 z-10 bg-blue-950 bg-opacity-70" : ""
+      } transition-colors duration-200 ease-in-out w-full ${
+        isSticky ? "fixed inset-x-0" : ""
+      }`}
+    >
       {/* CRYPTO-COIN Link */}
-      <a href="#" className="text-2xl font-extrabold text-gray-200">
+      <a href="#" className="text-2xl font-extrabold text-white">
         CryptoCoin
       </a>
 

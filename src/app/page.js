@@ -78,7 +78,7 @@ const Home = () => {
   };
 
   return (
-    <div className="container mx-auto px-8">
+    <>
       <Navbar
         isMenuOpen={isMenuOpen}
         handleMenuToggle={handleMenuToggle}
@@ -120,7 +120,7 @@ const Home = () => {
       </div>
       <JoinUs />
       <Footer />
-    </div>
+    </>
   );
 };
 
