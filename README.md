@@ -42,9 +42,9 @@ For detailed installation and usage instructions, please refer to the [documenta
 If you have any questions or suggestions, feel free to contact the project maintainers at spiridonov.kyiv@gmail.com
 
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
