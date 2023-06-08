@@ -82,7 +82,14 @@ const Home = () => {
     const filtered = cryptocurrencies.filter((crypto) =>
       crypto.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setFilteredCryptocurrencies(filtered);
+
+    if (searchTerm === "") {
+      setFilteredCryptocurrencies([]);
+      setCurrentPage(1);
+    } else {
+      setFilteredCryptocurrencies(filtered);
+      setCurrentPage(1);
+    }
   };
 
   return (
