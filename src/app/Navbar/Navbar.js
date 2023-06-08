@@ -8,11 +8,17 @@ const Navbar = ({ isMenuOpen, handleMenuToggle, handleCloseMenu }) => {
   const handleMenuClick = () => {
     handleMenuToggle();
     document.body.style.overflow = isMenuOpen ? "auto" : "hidden";
+    document.body.style.position = isMenuOpen ? "static" : "fixed";
+    document.body.style.width = "100%";
+    document.body.style.height = isMenuOpen ? "100vh" : "auto";
   };
 
   const handleCloseClick = () => {
     handleCloseMenu();
     document.body.style.overflow = "auto";
+    document.body.style.position = "static";
+    document.body.style.width = "auto";
+    document.body.style.height = "auto";
   };
 
   useEffect(() => {
@@ -58,19 +64,20 @@ const Navbar = ({ isMenuOpen, handleMenuToggle, handleCloseMenu }) => {
 
       {/* Burger Menu Items */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-gray-100">
+        <div className="md:hidden fixed inset-0 bg-gray-900 w-screen">
           <div className="flex justify-between items-center py-6 px-8">
-            <a href="#" className="text-2xl font-bold text-gray-800">
+            <a href="#" className="text-2xl font-bold text-gray-200">
               CRYPTO-COIN
             </a>
             <button
-              className="text-2xl cursor-pointer text-black"
+              className="text-2xl cursor-pointer text-gray-200"
               onClick={handleCloseClick}
             >
               &#10005;
             </button>
           </div>
           <MenuItems isMenuOpen={isMenuOpen} />
+          <SocialMediaIcons /> {/* Добавлено */}
         </div>
       )}
 

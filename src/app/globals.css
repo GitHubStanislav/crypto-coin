@@ -5,3 +5,37 @@
 body {
     @apply bg-gradient-to-b from-purple-950 to-gray-950 min-h-screen;
 }
+.animate-burger {
+    transition: transform 0.3s ease-in-out;
+}
+
+.animate-burger.open {
+    transform: rotate(90deg);
+}
+
+.animate-burger::before,
+.animate-burger::after {
+    content: "";
+    display: block;
+    background-color: #fff; /* Белый цвет */
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    transition: transform 0.3s ease-in-out;
+}
+
+.animate-burger::before {
+    top: -8px;
+}
+
+.animate-burger::after {
+    bottom: -8px;
+}
+
+.animate-burger.open::before {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.animate-burger.open::after {
+    transform: translateY(-8px) rotate(-45deg);
+}
