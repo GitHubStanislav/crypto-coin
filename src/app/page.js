@@ -10,6 +10,11 @@ import ReasonsToUseCrypto from "@/app/HeroSection/ReasonsToUseCrypto";
 import Footer from "@/app/Footer/Footer";
 import JoinUs from "@/app/HeroSection/JoinUs";
 
+const COINGECKO_API_URL =
+  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&sparkline=false&price_change_percentage=1h,24h,7d,30d,1y&market_data=false&community_data=false&developer_data=false";
+
+const EXCHANGE_RATE_API_URL = "https://api.exchangerate-api.com/v4/latest/USD";
+
 const Home = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [cryptocurrencies, setCryptocurrencies] = useState([]);
@@ -21,11 +26,9 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&sparkline=false&price_change_percentage=1h,24h,7d,30d,1y&market_data=false&community_data=false&developer_data=false"
-        );
-        setCryptocurrencies(response.data);
-        console.log(response);
+        const { data } = await axios.get(COINGECKO_API_URL);
+        setCryptocurrencies(data);
+        console.log(data);
       } catch (error) {
         console.log("Error fetching data:", error);
       }
@@ -33,10 +36,8 @@ const Home = () => {
 
     const fetchExchangeRate = async () => {
       try {
-        const response = await axios.get(
-          "https://api.exchangerate-api.com/v4/latest/USD"
-        );
-        const uahExchangeRate = response.data.rates.UAH;
+        const { data } = await axios.get(EXCHANGE_RATE_API_URL);
+        const uahExchangeRate = data.rates.UAH;
         setExchangeRate(uahExchangeRate);
       } catch (error) {
         console.log("Error fetching exchange rate:", error);
@@ -92,6 +93,11 @@ const Home = () => {
     }
   };
 
+  const cryptoList =
+    filteredCryptocurrencies.length > 0
+      ? filteredCryptocurrencies
+      : visibleCryptocurrencies;
+
   return (
     <>
       <Navbar
@@ -102,14 +108,10 @@ const Home = () => {
       <Section cryptocurrencies={cryptocurrencies} />
 
       <div className="text-gray-900 p-8 bg-inherit">
-        {!!cryptocurrencies.length ? (
+        {cryptocurrencies.length ? (
           <CryptoList
             handleSearch={handleSearch}
-            cryptocurrencies={
-              filteredCryptocurrencies.length > 0
-                ? filteredCryptocurrencies
-                : visibleCryptocurrencies
-            }
+            cryptocurrencies={cryptoList}
             exchangeRate={exchangeRate}
           />
         ) : (
@@ -118,7 +120,6 @@ const Home = () => {
               height={180}
               width={180}
               ariaLabel="progress-bar-loading"
-              wrapperStyle={{}}
               wrapperClass="progress-bar-wrapper"
               borderColor="#F4442E"
               barColor="#51E5FF"
@@ -136,10 +137,7 @@ const Home = () => {
           />
         </div>
       </div>
-
-      <div>
-        <ReasonsToUseCrypto />
-      </div>
+      <ReasonsToUseCrypto />
       <JoinUs />
       <Footer />
     </>
