@@ -16,6 +16,7 @@ const Home = () => {
   const [exchangeRate, setExchangeRate] = useState(0);
   const [visibleCryptocurrencies, setVisibleCryptocurrencies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [filteredCryptocurrencies, setFilteredCryptocurrencies] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -77,6 +78,13 @@ const Home = () => {
     setMenuOpen(false);
   };
 
+  const handleSearch = (searchTerm) => {
+    const filtered = cryptocurrencies.filter((crypto) =>
+      crypto.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredCryptocurrencies(filtered);
+  };
+
   return (
     <>
       <Navbar
@@ -85,35 +93,42 @@ const Home = () => {
         handleCloseMenu={handleCloseMenu}
       />
       <Section cryptocurrencies={cryptocurrencies} />
-      {!!cryptocurrencies.length ? (
-        <div className="text-gray-900 p-8 bg-inherit">
+
+      <div className="text-gray-900 p-8 bg-inherit">
+        {!!cryptocurrencies.length ? (
           <CryptoList
-            cryptocurrencies={visibleCryptocurrencies}
+            handleSearch={handleSearch}
+            cryptocurrencies={
+              filteredCryptocurrencies.length > 0
+                ? filteredCryptocurrencies
+                : visibleCryptocurrencies
+            }
             exchangeRate={exchangeRate}
           />
-          <div className="flex justify-center mt-4">
-            <Pagination
-              currentPage={currentPage}
-              totalPages={Math.ceil(cryptocurrencies.length / 10)}
-              handlePageChange={handlePageChange}
-              handlePreviousPage={handlePreviousPage}
-              handleNextPage={handleNextPage}
+        ) : (
+          <div className="flex justify-center w-auto">
+            <ProgressBar
+              height={180}
+              width={180}
+              ariaLabel="progress-bar-loading"
+              wrapperStyle={{}}
+              wrapperClass="progress-bar-wrapper"
+              borderColor="#F4442E"
+              barColor="#51E5FF"
             />
-          </div>{" "}
-        </div>
-      ) : (
-        <div className="flex justify-center w-auto">
-          <ProgressBar
-            height={180}
-            width={180}
-            ariaLabel="progress-bar-loading"
-            wrapperStyle={{}}
-            wrapperClass="progress-bar-wrapper"
-            borderColor="#F4442E"
-            barColor="#51E5FF"
+          </div>
+        )}
+
+        <div className="flex justify-center mt-4">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(cryptocurrencies.length / 10)}
+            handlePageChange={handlePageChange}
+            handlePreviousPage={handlePreviousPage}
+            handleNextPage={handleNextPage}
           />
         </div>
-      )}
+      </div>
 
       <div>
         <ReasonsToUseCrypto />
