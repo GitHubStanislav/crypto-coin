@@ -11,7 +11,7 @@ const CryptoSearch = ({ handleSearch }) => {
   return (
     <div className="ml-8 mt-8 mb-10 w-fit">
       <label htmlFor="cryptoSearch" className="text-pink-600 font-medium">
-        Find Crypto
+        Find CryptoCoin
       </label>
       <input
         id="cryptoSearch"
