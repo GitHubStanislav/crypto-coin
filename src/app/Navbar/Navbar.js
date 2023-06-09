@@ -56,7 +56,14 @@ const Navbar = () => {
     >
       {/* CRYPTO-COIN Link */}
       <a href="#" className="text-2xl font-extrabold text-white">
-        CryptoCoin
+        <span className="bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
+          C
+        </span>
+        rypto
+        <span className="bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
+          C
+        </span>
+        oin
       </a>
 
       {/* Menu Items */}
