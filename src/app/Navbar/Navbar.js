@@ -42,7 +42,6 @@ const Navbar = () => {
         isSticky ? "fixed inset-x-0" : ""
       }`}
     >
-      {/* CRYPTO-COIN Link */}
       <a href="#" className="text-2xl font-extrabold text-white">
         CryptoCoin
       </a>
