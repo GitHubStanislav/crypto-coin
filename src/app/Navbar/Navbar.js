@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { animateScroll as scroll } from "react-scroll";
 import MenuItems from "./MenuItems";
 import SocialMediaIcons from "./SocialMediaIcons";
+import Animation from "@/app/AnimationContainer/Animation";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -55,7 +56,8 @@ const Navbar = () => {
       }`}
     >
       {/* CRYPTO-COIN Link */}
-      <a href="#" className="text-2xl font-extrabold text-white">
+
+      <a href="#" className="text-xl font-extrabold text-white">
         <span className="bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
           C
         </span>
