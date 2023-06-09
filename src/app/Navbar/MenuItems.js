@@ -3,7 +3,7 @@ import { Link } from "react-scroll";
 
 const MenuItems = ({ scrollToTop, scrollToMarket, scrollToJoinUs }) => {
   return (
-    <ul className="md:flex flex-col md:flex-row md:space-x-4 md:items-center mt-4 ml-4 md:mt-0 overflow-hidden">
+    <ul className="flex flex-row space-x-4 items-center mt-4 ml-4 overflow-hidden">
       <li className="font-bold text-gray-200 hover:text-pink-500 block text-lg py-2 cursor-pointer">
         <Link
           to="section1"
