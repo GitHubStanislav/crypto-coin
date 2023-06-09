@@ -1,4 +1,5 @@
 "use client";
+"use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { ProgressBar } from "react-loader-spinner";
@@ -22,15 +23,17 @@ const Home = () => {
   const [visibleCryptocurrencies, setVisibleCryptocurrencies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredCryptocurrencies, setFilteredCryptocurrencies] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(COINGECKO_API_URL);
         setCryptocurrencies(data);
-        console.log(data);
+        setVisibleCryptocurrencies(data.slice(0, 10));
       } catch (error) {
         console.log("Error fetching data:", error);
+        setError(true);
       }
     };
 
@@ -47,12 +50,6 @@ const Home = () => {
     fetchData();
     fetchExchangeRate();
   }, []);
-
-  useEffect(() => {
-    setVisibleCryptocurrencies(
-      cryptocurrencies.slice((currentPage - 1) * 10, currentPage * 10)
-    );
-  }, [cryptocurrencies, currentPage]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -116,30 +113,40 @@ const Home = () => {
           />
         ) : (
           <div className="flex justify-center w-auto">
-            <ProgressBar
-              height={180}
-              width={180}
-              ariaLabel="progress-bar-loading"
-              wrapperClass="progress-bar-wrapper"
-              borderColor="#F4442E"
-              barColor="#51E5FF"
-            />
+            {error ? (
+              <p className="text-white text-xl">
+                Failed to load data. Please try again later.
+              </p>
+            ) : (
+              <ProgressBar
+                height={180}
+                width={180}
+                ariaLabel="progress-bar-loading"
+                wrapperClass="progress-bar-wrapper"
+                borderColor="#F4442E"
+                barColor="#51E5FF"
+              />
+            )}
           </div>
         )}
-
-        <div className="flex justify-center mt-4">
-          <Pagination
-            currentPage={currentPage}
-            totalPages={Math.ceil(cryptocurrencies.length / 10)}
-            handlePageChange={handlePageChange}
-            handlePreviousPage={handlePreviousPage}
-            handleNextPage={handleNextPage}
-          />
-        </div>
+        {cryptocurrencies.length > 0 || !!error ? (
+          // Отображение блока после загрузки данных или в случае ошибки
+          <>
+            <div className="flex justify-center mt-4">
+              <Pagination
+                currentPage={currentPage}
+                totalPages={Math.ceil(cryptocurrencies.length / 10)}
+                handlePageChange={handlePageChange}
+                handlePreviousPage={handlePreviousPage}
+                handleNextPage={handleNextPage}
+              />
+            </div>
+            <ReasonsToUseCrypto />
+            <JoinUs />
+            <Footer />
+          </>
+        ) : null}
       </div>
-      <ReasonsToUseCrypto />
-      <JoinUs />
-      <Footer />
     </>
   );
 };
