@@ -17,7 +17,6 @@ const COINGECKO_API_URL =
 const EXCHANGE_RATE_API_URL = "https://api.exchangerate-api.com/v4/latest/USD";
 
 const Home = () => {
-  const [isMenuOpen, setMenuOpen] = useState(false);
   const [cryptocurrencies, setCryptocurrencies] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(0);
   const [visibleCryptocurrencies, setVisibleCryptocurrencies] = useState([]);
@@ -71,14 +70,6 @@ const Home = () => {
     }
   };
 
-  const handleMenuToggle = () => {
-    setMenuOpen((prevState) => !prevState);
-  };
-
-  const handleCloseMenu = () => {
-    setMenuOpen(false);
-  };
-
   const handleSearch = (searchTerm) => {
     const filtered = cryptocurrencies.filter((crypto) =>
       crypto.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -100,11 +91,7 @@ const Home = () => {
 
   return (
     <>
-      <Navbar
-        isMenuOpen={isMenuOpen}
-        handleMenuToggle={handleMenuToggle}
-        handleCloseMenu={handleCloseMenu}
-      />
+      <Navbar />
       <Element name="section1" id="section1">
         <Section cryptocurrencies={cryptocurrencies} />
       </Element>
