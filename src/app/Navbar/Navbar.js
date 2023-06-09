@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { animateScroll as scroll } from "react-scroll";
 import MenuItems from "./MenuItems";
 import SocialMediaIcons from "./SocialMediaIcons";
 
@@ -19,6 +20,21 @@ const Navbar = ({ isMenuOpen, handleMenuToggle, handleCloseMenu }) => {
     document.body.style.position = "static";
     document.body.style.width = "auto";
     document.body.style.height = "auto";
+  };
+
+  const scrollToTop = () => {
+    const section = document.getElementById("section1");
+    section.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToMarket = () => {
+    const section = document.getElementById("section2");
+    section.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToJoinUs = () => {
+    const section = document.getElementById("section3");
+    section.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -60,7 +76,12 @@ const Navbar = ({ isMenuOpen, handleMenuToggle, handleCloseMenu }) => {
       </div>
 
       {/* Menu Items */}
-      <MenuItems isMenuOpen={isMenuOpen} />
+      <MenuItems
+        isMenuOpen={isMenuOpen}
+        scrollToTop={scrollToTop}
+        scrollToMarket={scrollToMarket}
+        scrollToJoinUs={scrollToJoinUs}
+      />
 
       {/* Burger Menu Items */}
       {isMenuOpen && (

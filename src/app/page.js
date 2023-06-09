@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { Element } from "react-scroll";
 import axios from "axios";
 import { ProgressBar } from "react-loader-spinner";
 import Navbar from "./Navbar/Navbar";
@@ -28,7 +29,6 @@ const Home = () => {
       try {
         const { data } = await axios.get(COINGECKO_API_URL);
         setCryptocurrencies(data);
-        console.log(data);
       } catch (error) {
         console.log("Error fetching data:", error);
       }
@@ -105,15 +105,19 @@ const Home = () => {
         handleMenuToggle={handleMenuToggle}
         handleCloseMenu={handleCloseMenu}
       />
-      <Section cryptocurrencies={cryptocurrencies} />
+      <Element name="section1" id="section1">
+        <Section cryptocurrencies={cryptocurrencies} />
+      </Element>
 
       <div className="text-gray-900 p-8 bg-inherit">
         {cryptocurrencies.length ? (
-          <CryptoList
-            handleSearch={handleSearch}
-            cryptocurrencies={cryptoList}
-            exchangeRate={exchangeRate}
-          />
+          <Element name="section2" id="section2">
+            <CryptoList
+              handleSearch={handleSearch}
+              cryptocurrencies={cryptoList}
+              exchangeRate={exchangeRate}
+            />
+          </Element>
         ) : (
           <div className="flex justify-center w-auto">
             <ProgressBar
@@ -137,7 +141,9 @@ const Home = () => {
         </div>
       </div>
       <ReasonsToUseCrypto />
-      <JoinUs />
+      <Element name="section3" id="section3">
+        <JoinUs />
+      </Element>
       <Footer />
     </>
   );
