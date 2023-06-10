@@ -5,37 +5,28 @@
 body {
     @apply bg-gradient-to-b from-purple-950 to-gray-950 min-h-screen;
 }
-.animate-burger {
-    transition: transform 0.3s ease-in-out;
+/* Для вебкит-браузеров (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 10px; /* ширина полосы прокрутки */
 }
 
-.animate-burger.open {
-    transform: rotate(90deg);
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* цвет фона полосы прокрутки */
 }
 
-.animate-burger::before,
-.animate-burger::after {
-    content: "";
-    display: block;
-    background-color: #fff; /* Белый цвет */
-    height: 3px;
-    width: 100%;
-    position: absolute;
-    transition: transform 0.3s ease-in-out;
+::-webkit-scrollbar-thumb {
+    background: #888; /* цвет полосы прокрутки */
 }
 
-.animate-burger::before {
-    top: -8px;
+/* Для остальных браузеров */
+scrollbar {
+    width: 10px; /* ширина полосы прокрутки */
 }
 
-.animate-burger::after {
-    bottom: -8px;
+scrollbar-track {
+    background: #f1f1f1; /* цвет фона полосы прокрутки */
 }
 
-.animate-burger.open::before {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.animate-burger.open::after {
-    transform: translateY(-8px) rotate(-45deg);
+scrollbar-thumb {
+    background: #888; /* цвет полосы прокрутки */
 }
