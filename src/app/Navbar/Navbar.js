@@ -48,7 +48,7 @@ const Navbar = () => {
   return (
     <nav
       className={`flex flex-wrap ${
-        isSmallScreen ? "flex-col items-center" : "justify-between items-center"
+        isSmallScreen ? "flex-col items-center" : "justify-around items-center"
       } py-6 px-8 mt-5  ${
         isSticky ? "sticky top-0 z-10 bg-blue-950 bg-opacity-70" : ""
       } transition-colors duration-200 ease-in-out w-full ${
