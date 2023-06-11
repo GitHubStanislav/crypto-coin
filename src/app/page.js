@@ -95,7 +95,6 @@ const Home = () => {
       <Element name="section1" id="section1">
         <Section cryptocurrencies={cryptocurrencies} />
       </Element>
-
       <div className="text-gray-900 p-8 bg-inherit">
         {cryptocurrencies.length ? (
           <Element name="section2" id="section2">
