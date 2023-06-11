@@ -11,11 +11,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* цвет фона полосы прокрутки */
+    background: gray; /* цвет фона полосы прокрутки */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888; /* цвет полосы прокрутки */
+    background: deeppink; /* цвет полосы прокрутки */
 }
 
 /* Для остальных браузеров */
