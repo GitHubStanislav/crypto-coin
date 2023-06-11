@@ -15,7 +15,7 @@ const ReasonsToUseCrypto = () => {
         6 REASONS TO USE CRYPTO
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div className="bg-gray-800 rounded-lg p-8 shadow-lg flex flex-col items-center transform transition duration-500 hover:scale-105">
+        <div className="bg-inherit rounded-lg p-8 flex flex-col items-center transform transition duration-500 hover:scale-105">
           <div className="text-4xl text-yellow-400 mb-4">
             <BsLockFill />
           </div>
@@ -26,7 +26,7 @@ const ReasonsToUseCrypto = () => {
             fraud.
           </p>
         </div>
-        <div className="bg-gray-800 rounded-lg p-8 shadow-lg flex flex-col items-center transform transition duration-500 hover:scale-105">
+        <div className="bg-inherit rounded-lg p-8 flex flex-col items-center transform transition duration-500 hover:scale-105">
           <div className="text-4xl text-yellow-400 mb-4">
             <BsShieldLockFill />
           </div>
@@ -36,7 +36,7 @@ const ReasonsToUseCrypto = () => {
             financial privacy, offering secure and pseudonymous transactions.
           </p>
         </div>
-        <div className="bg-gray-800 rounded-lg p-8 shadow-lg flex flex-col items-center transform transition duration-500 hover:scale-105">
+        <div className="bg-inherit rounded-lg p-8 flex flex-col items-center transform transition duration-500 hover:scale-105">
           <div className="text-4xl text-yellow-400 mb-4">
             <BsCashCoin />
           </div>
@@ -48,7 +48,7 @@ const ReasonsToUseCrypto = () => {
             portfolios, reducing risk exposure to traditional financial markets.
           </p>
         </div>
-        <div className="bg-gray-800 rounded-lg p-8 shadow-lg flex flex-col items-center transform transition duration-500 hover:scale-105">
+        <div className="bg-inherit rounded-lg p-8 flex flex-col items-center transform transition duration-500 hover:scale-105">
           <div className="text-4xl text-yellow-400 mb-4">
             <BsLightningFill />
           </div>
@@ -58,7 +58,7 @@ const ReasonsToUseCrypto = () => {
             enabling fast and seamless transfers of value.
           </p>
         </div>
-        <div className="bg-gray-800 rounded-lg p-8 shadow-lg flex flex-col items-center transform transition duration-500 hover:scale-105">
+        <div className="bg-inherit rounded-lg p-8 flex flex-col items-center transform transition duration-500 hover:scale-105">
           <div className="text-4xl text-yellow-400 mb-4">
             <BsGraphUp />
           </div>
@@ -71,7 +71,7 @@ const ReasonsToUseCrypto = () => {
             wealth accumulation.
           </p>
         </div>
-        <div className="bg-gray-800 rounded-lg p-8 shadow-lg flex flex-col items-center transform transition duration-500 hover:scale-105">
+        <div className="bg-inherit rounded-lg p-8 flex flex-col items-center transform transition duration-500 hover:scale-105">
           <div className="text-4xl text-yellow-400 mb-4">
             <BsPuzzleFill />
           </div>
