@@ -3,7 +3,7 @@ import { FaBitcoin, FaUsers, FaMoneyCheckAlt, FaBook } from "react-icons/fa";
 
 const JoinUs = () => {
   return (
-    <section className="container mx-auto px-8 py-10 mt-2">
+    <section className="container mx-auto px-8">
       <div className="w-full flex flex-col items-center justify-center">
         <div className="bg-inherit text-white rounded-lg p-12">
           <h2 className="text-4xl md:text-6xl font-bold mb-8 text-center">
