@@ -1,5 +1,4 @@
 "use client";
-"use client";
 import React, { useState, useEffect } from "react";
 import { Element } from "react-scroll";
 import axios from "axios";
@@ -30,6 +29,7 @@ const Home = () => {
       try {
         const { data } = await axios.get(COINGECKO_API_URL);
         setCryptocurrencies(data);
+        setVisibleCryptocurrencies(data.slice(0, 10)); // Установка первых 10 криптовалют в visibleCryptocurrencies
       } catch (error) {
         console.log("Error fetching data:", error);
         setError(true);
