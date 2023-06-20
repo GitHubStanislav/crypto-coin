@@ -1,6 +1,6 @@
 "use client";
-"use client";
 import React, { useState, useEffect } from "react";
+import { Element } from "react-scroll";
 import axios from "axios";
 import { ProgressBar } from "react-loader-spinner";
 import Navbar from "./Navbar/Navbar";
@@ -17,7 +17,6 @@ const COINGECKO_API_URL =
 const EXCHANGE_RATE_API_URL = "https://api.exchangerate-api.com/v4/latest/USD";
 
 const Home = () => {
-  const [isMenuOpen, setMenuOpen] = useState(false);
   const [cryptocurrencies, setCryptocurrencies] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(0);
   const [visibleCryptocurrencies, setVisibleCryptocurrencies] = useState([]);
@@ -30,7 +29,7 @@ const Home = () => {
       try {
         const { data } = await axios.get(COINGECKO_API_URL);
         setCryptocurrencies(data);
-        setVisibleCryptocurrencies(data.slice(0, 10));
+        setVisibleCryptocurrencies(data.slice(0, 10)); // Установка первых 10 криптовалют в visibleCryptocurrencies
       } catch (error) {
         console.log("Error fetching data:", error);
         setError(true);
@@ -68,14 +67,6 @@ const Home = () => {
     }
   };
 
-  const handleMenuToggle = () => {
-    setMenuOpen((prevState) => !prevState);
-  };
-
-  const handleCloseMenu = () => {
-    setMenuOpen(false);
-  };
-
   const handleSearch = (searchTerm) => {
     const filtered = cryptocurrencies.filter((crypto) =>
       crypto.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -90,6 +81,12 @@ const Home = () => {
     }
   };
 
+  useEffect(() => {
+    setVisibleCryptocurrencies(
+      cryptocurrencies.slice((currentPage - 1) * 10, currentPage * 10)
+    );
+  }, [cryptocurrencies, currentPage]);
+
   const cryptoList =
     filteredCryptocurrencies.length > 0
       ? filteredCryptocurrencies
@@ -97,20 +94,19 @@ const Home = () => {
 
   return (
     <>
-      <Navbar
-        isMenuOpen={isMenuOpen}
-        handleMenuToggle={handleMenuToggle}
-        handleCloseMenu={handleCloseMenu}
-      />
-      <Section cryptocurrencies={cryptocurrencies} />
-
+      <Navbar />
+      <Element name="section1" id="section1">
+        <Section cryptocurrencies={cryptocurrencies} />
+      </Element>
       <div className="text-gray-900 p-8 bg-inherit">
         {cryptocurrencies.length ? (
-          <CryptoList
-            handleSearch={handleSearch}
-            cryptocurrencies={cryptoList}
-            exchangeRate={exchangeRate}
-          />
+          <Element name="section2" id="section2">
+            <CryptoList
+              handleSearch={handleSearch}
+              cryptocurrencies={cryptoList}
+              exchangeRate={exchangeRate}
+            />
+          </Element>
         ) : (
           <div className="flex justify-center w-auto">
             {error ? (
@@ -129,24 +125,21 @@ const Home = () => {
             )}
           </div>
         )}
-        {cryptocurrencies.length > 0 || !!error ? (
-          // Отображение блока после загрузки данных или в случае ошибки
-          <>
-            <div className="flex justify-center mt-4">
-              <Pagination
-                currentPage={currentPage}
-                totalPages={Math.ceil(cryptocurrencies.length / 10)}
-                handlePageChange={handlePageChange}
-                handlePreviousPage={handlePreviousPage}
-                handleNextPage={handleNextPage}
-              />
-            </div>
-            <ReasonsToUseCrypto />
-            <JoinUs />
-            <Footer />
-          </>
-        ) : null}
+        <div className="flex justify-center mt-4">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(cryptocurrencies.length / 10)}
+            handlePageChange={handlePageChange}
+            handlePreviousPage={handlePreviousPage}
+            handleNextPage={handleNextPage}
+          />
+        </div>
       </div>
+      <ReasonsToUseCrypto />
+      <Element name="section3" id="section3">
+        <JoinUs />
+      </Element>
+      <Footer />
     </>
   );
 };
