@@ -81,6 +81,12 @@ const Home = () => {
     }
   };
 
+  useEffect(() => {
+    setVisibleCryptocurrencies(
+      cryptocurrencies.slice((currentPage - 1) * 10, currentPage * 10)
+    );
+  }, [cryptocurrencies, currentPage]);
+
   const cryptoList =
     filteredCryptocurrencies.length > 0
       ? filteredCryptocurrencies
