@@ -1,4 +1,5 @@
 "use client";
+"use client";
 import React, { useState, useEffect } from "react";
 import { Element } from "react-scroll";
 import axios from "axios";
@@ -22,6 +23,7 @@ const Home = () => {
   const [visibleCryptocurrencies, setVisibleCryptocurrencies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredCryptocurrencies, setFilteredCryptocurrencies] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +32,7 @@ const Home = () => {
         setCryptocurrencies(data);
       } catch (error) {
         console.log("Error fetching data:", error);
+        setError(true);
       }
     };
 
@@ -46,12 +49,6 @@ const Home = () => {
     fetchData();
     fetchExchangeRate();
   }, []);
-
-  useEffect(() => {
-    setVisibleCryptocurrencies(
-      cryptocurrencies.slice((currentPage - 1) * 10, currentPage * 10)
-    );
-  }, [cryptocurrencies, currentPage]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -106,14 +103,20 @@ const Home = () => {
           </Element>
         ) : (
           <div className="flex justify-center w-auto">
-            <ProgressBar
-              height={180}
-              width={180}
-              ariaLabel="progress-bar-loading"
-              wrapperClass="progress-bar-wrapper"
-              borderColor="#F4442E"
-              barColor="#51E5FF"
-            />
+            {error ? (
+              <p className="text-white text-xl">
+                Failed to load data. Please try again later.
+              </p>
+            ) : (
+              <ProgressBar
+                height={180}
+                width={180}
+                ariaLabel="progress-bar-loading"
+                wrapperClass="progress-bar-wrapper"
+                borderColor="#F4442E"
+                barColor="#51E5FF"
+              />
+            )}
           </div>
         )}
         <div className="flex justify-center mt-4">
